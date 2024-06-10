@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@wordpress/edit-post": "^7.35.0",
+    "animate.css": "^4.1.1",
+    "tailwind-animatecss": "^1.0.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.3"
+  }
+}

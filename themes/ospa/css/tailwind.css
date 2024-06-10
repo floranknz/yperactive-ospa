@@ -1,0 +1,243 @@
+/*
+Theme Name: O'Spa
+Theme URI: https://spa-merignac.com
+Author: Yperactive
+Author URI: https://yperactive.com
+Description: Custom theme for O'Spa, made by Yperactive (Floran Knezevic)
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: "Bon Vivant";
+        font-weight: normal;
+        src: url("../fonts/BonVivantSerif.otf") format("truetype");
+    }
+    @font-face {
+        font-family: "Bon Vivant";
+        font-weight: bold;
+        src: url("../fonts/BonVivantSerifBold.otf") format("truetype");
+    }
+    @font-face {
+        font-family: "Figtree";
+        font-weight: normal;
+        src: url("../fonts/Figtree-Regular.ttf") format("truetype");
+    }
+    @font-face {
+        font-family: "Figtree";
+        font-weight: bold;
+        src: url("../fonts/Figtree-Medium.ttf") format("truetype");
+    }
+    .title-1 {
+        @apply font-title text-mineral-green-600 mb-24;
+        font-size: 48px;
+        line-height: normal;
+    }
+    .title-2 {
+        @apply font-title font-bold;
+        font-size: 24px;
+        line-height: normal;
+    }
+    .title-3 {
+        @apply font-body;
+        font-weight: 300;
+        font-size: 18px;
+    }
+    .pretitle-1 {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+        display: inline-block;
+    }
+    .pretitle-2 {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+        display: inline-block;
+    }
+    .caption {
+        font-size: 14px;
+    }
+    .body-2 {
+        font-size: 16px;
+        font-weight: 300;
+    }
+    .body-1 {
+        font-size: 16px;
+        font-weight: 400;
+    }
+    body {
+        @apply font-body text-outer-space-700 bg-soft-white-100;
+        font-weight: 300;
+    }
+    p a{
+        @apply body-1 text-mineral-green-400;
+    }
+    header .navbar-menu .menu-item a{
+        @apply flex items-center h-40;
+    }
+    header .sub-menu{
+        @apply hidden absolute -ml-24 py-8 shadow-md bg-soft-white-100 min-w-64 text-outer-space-700 rounded;
+    }
+    header .sub-menu.open{
+        @apply block;
+    }
+    header .sub-menu li a{
+        @apply block py-8 px-24 hover:bg-soft-white-200;
+    }
+    header .navbar-menu-mobile{
+        @apply absolute flex-col bg-pure-white text-outer-space-700 top-[76px] w-[calc(100vw-48px)] left-24 rounded px-24 py-8;
+    }
+    header .navbar-menu-mobile li a{
+        @apply flex py-16;
+    }
+    header .navbar-menu-mobile li:not(:last-child){
+        @apply border-b border-soft-white-400;
+    }
+    header .navbar-menu-mobile .sub-menu-mobile{
+        @apply bg-soft-white-200 px-16 rounded mb-16;
+    }
+    .chevron {
+        transition: transform 0.3s ease;
+    }
+    p {
+        line-height: 1.6;
+    }
+    .btn {
+        @apply inline-block cursor-pointer;
+        font-weight: 400;
+    }
+    .btn-primary {
+        @apply py-8 px-24 bg-mineral-green-600 text-pure-white rounded-full hover:bg-mineral-green-700 active:bg-mineral-green-800;
+    }
+    .btn-secondary {
+        @apply py-8 px-24 border border-mineral-green-600 text-mineral-green-600 rounded-full hover:text-mineral-green-700 hover:border-mineral-green-700 active:border-mineral-green-800 active:text-mineral-green-800;
+    }
+    .btn-tertiary {
+        @apply border-b pb-4 border-mineral-green-600 text-mineral-green-600 hover:border-mineral-green-700 hover:text-mineral-green-700 active:border-mineral-green-800 active:text-mineral-green-900;
+    }
+    .separator {
+        @apply h-[275px];
+    }
+    .banner {
+        @apply p-16 md:p-32 rounded shadow-md;
+        background-image: url("./img/borders/border-1.jpg");
+        background-size: cover;
+        background-position: center;
+    }
+    .banner .content {
+        @apply p-32 bg-soft-white-50;
+    }
+    .hero-full {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./img/hero-bg.jpg");
+        background-size: cover;
+        background-position: center;
+    }
+    footer {
+        @apply bg-soft-white-200;
+    }
+    footer .container {
+        @apply pt-32 pb-48;
+    }
+    footer .pretitle-2 {
+        @apply mb-8 text-outer-space-300;
+    }
+    footer ul li {
+        @apply mb-8;
+    }
+    footer .legal-footer {
+        @apply flex flex-wrap p-8 gap-8 md:h-40 md:gap-16 justify-center items-center bg-soft-white-400 text-outer-space-400 caption;
+    }
+    footer .legal-footer .dash::after {
+        @apply text-outer-space-300;
+        content: "\2013";
+    }
+    footer .legal-footer a {
+        @apply text-outer-space-700;
+    }
+    .slider-content{
+        transition: all 0.25s ease 0s;
+    }
+    .slider-item {
+        @apply w-5/6 md:w-1/3 shrink-0;
+    }
+    .slider-item img {
+        @apply mb-16 rounded;
+    }
+    .page-content > p{
+        @apply container my-80;
+    }
+    input, textarea{
+        @apply body-1 h-40 px-12 bg-soft-white-50 border border-soft-white-300 rounded;
+    }
+    textarea{
+        @apply py-8;
+        resize: none;
+    }
+    input::placeholder, textarea::placeholder{
+        @apply text-outer-space-200;
+    }
+    input:focus, textarea:focus{
+        @apply border border-mineral-green-200;
+        outline: none;
+        box-shadow: 0px 0px 4px 1px #BCD3CE;
+    }
+    input:disabled, textarea:disabled{
+        @apply bg-soft-white-300 text-outer-space-400;
+    }
+    label{
+        @apply mb-4 body-1 block;
+    }
+    .photos-2{
+        background-image: url("./img/green-big.png");
+        background-position: 103% -80%  ;
+        background-repeat: no-repeat;
+        background-size: auto 90%;
+    }
+    .wysiwyg h1{ @apply title-1};
+    .wysiwyg h2{ @apply title-2};
+    .wysiwyg h3{ @apply title-3};
+
+}
+
+/* ------- To prevent purge ------- */
+
+/* Contact forms */
+
+.input-group{
+    @apply mb-16;
+}
+.input-group input, .input-group textarea{
+    width: 100%;
+}
+.wpcf7 .wpcf7-not-valid{
+    @apply border border-ui-error;
+}
+.required::after{
+    @apply text-ui-error;
+    content: "*";
+}
+.wpcf7 .wpcf7-not-valid-tip{
+    @apply text-sm text-ui-error;
+}
+.wpcf7 form.invalid .wpcf7-response-output{
+    @apply border border-ui-error rounded p-16 m-0 flex items-center;
+}
+.wpcf7 form.invalid .wpcf7-response-output::before{
+    content:"\eac7";
+    font-family: "boxicons";
+    font-size: 24px;
+    @apply text-ui-error mr-8; 
+}
+.wpcf7 form.submitting .wpcf7-submit{
+    display:none;
+}
+.promotional-banner{
+    @apply bg-mineral-green-600 text-center py-12 underline; 
+}
