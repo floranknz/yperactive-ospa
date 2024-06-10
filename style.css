@@ -491,7 +491,7 @@ video {
 
 .title-1 {
   margin-bottom: 24px;
-  font-family: Bon Vivant Family Serif;
+  font-family: Bon Vivant, Times New Roman;
   --tw-text-opacity: 1;
   color: rgb(57 85 81 / var(--tw-text-opacity));
   font-size: 48px;
@@ -499,7 +499,7 @@ video {
 }
 
 .title-2 {
-  font-family: Bon Vivant Family Serif;
+  font-family: Bon Vivant, Times New Roman;
   font-weight: 700;
   font-size: 24px;
   line-height: normal;
@@ -949,7 +949,7 @@ label {
 
 .wysiwyg h1 {
   margin-bottom: 24px;
-  font-family: Bon Vivant Family Serif;
+  font-family: Bon Vivant, Times New Roman;
   --tw-text-opacity: 1;
   color: rgb(57 85 81 / var(--tw-text-opacity));
   font-size: 48px;
@@ -957,7 +957,7 @@ label {
 }
 
 .wysiwyg h2 {
-  font-family: Bon Vivant Family Serif;
+  font-family: Bon Vivant, Times New Roman;
   font-weight: 700;
   font-size: 24px;
   line-height: normal;

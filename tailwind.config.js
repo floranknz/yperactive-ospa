@@ -17,7 +17,7 @@ module.exports = {
         },
         fontFamily: {
             body: ["Figtree", "Arial"],
-            title: "Bon Vivant Family Serif",
+            title: ["Bon Vivant", "Times New Roman"],
         },
         spacing: {
             0: "0px",
