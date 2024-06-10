@@ -17,22 +17,22 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     @font-face {
         font-family: "Bon Vivant";
         font-weight: normal;
-        src: url("../fonts/BonVivantSerif.otf") format("truetype");
+        src: url("./fonts/BonVivantSerif.otf") format("truetype");
     }
     @font-face {
         font-family: "Bon Vivant";
         font-weight: bold;
-        src: url("../fonts/BonVivantSerifBold.otf") format("truetype");
+        src: url("./fonts/BonVivantSerifBold.otf") format("truetype");
     }
     @font-face {
         font-family: "Figtree";
         font-weight: normal;
-        src: url("../fonts/Figtree-Regular.ttf") format("truetype");
+        src: url("./fonts/Figtree-Regular.ttf") format("truetype");
     }
     @font-face {
         font-family: "Figtree";
         font-weight: bold;
-        src: url("../fonts/Figtree-Medium.ttf") format("truetype");
+        src: url("./fonts/Figtree-Medium.ttf") format("truetype");
     }
     .title-1 {
         @apply font-title text-mineral-green-600 mb-24;
