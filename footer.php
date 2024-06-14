@@ -1,8 +1,12 @@
 <footer>
         <div class="container flex flex-col gap-32 md:flex-row md:gap-24">
             <div class="md:w-2/12">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ospa.svg" alt="O'Spa" class="w-[100px] mb-24" />
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/spabysothys.png" alt="Spa by Sothys" class="w-[120px]" />
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ospa.svg" alt="O'Spa" class="w-[80px] mb-16" />
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/spabysothys.png" alt="Spa by Sothys" class="w-[100px]" />
+                <div class="info text-[14px] mt-24 pt-16 border-t border-soft-white-400">
+                    <p>28 Avenue de Pythagore, 33700 Mérignac</p>
+                    <a href="tel:000000000">05 00 00 00 00</a>
+                </div>
             </div>
             <div class="md:w-3/12">
                 <span class="pretitle-2">À propos</span>
