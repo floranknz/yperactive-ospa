@@ -3297,6 +3297,10 @@ label {
   justify-items: stretch;
 }
 
+.gap-16 {
+  gap: 16px;
+}
+
 .gap-24 {
   gap: 24px;
 }
@@ -3637,6 +3641,10 @@ label {
   border-radius: 0.25rem;
 }
 
+.rounded-full {
+  border-radius: 9999px;
+}
+
 .rounded-b {
   border-bottom-right-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
@@ -3741,14 +3749,6 @@ label {
   border-top-width: 1px;
 }
 
-.border-t-4 {
-  border-top-width: 4px;
-}
-
-.border-t-2 {
-  border-top-width: 2px;
-}
-
 .border-solid {
   border-style: solid;
 }
@@ -3791,16 +3791,6 @@ label {
   border-color: rgb(252 252 251 / 0.3);
 }
 
-.border-soft-white-200 {
-  --tw-border-opacity: 1;
-  border-color: rgb(246 246 245 / var(--tw-border-opacity));
-}
-
-.border-soft-white-300 {
-  --tw-border-opacity: 1;
-  border-color: rgb(237 237 236 / var(--tw-border-opacity));
-}
-
 .border-soft-white-400 {
   --tw-border-opacity: 1;
   border-color: rgb(225 225 224 / var(--tw-border-opacity));
@@ -3814,6 +3804,11 @@ label {
 .bg-mineral-green-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(81 123 115 / var(--tw-bg-opacity));
+}
+
+.bg-outer-space-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(212 219 223 / var(--tw-bg-opacity));
 }
 
 .bg-outer-space-200 {
@@ -4009,8 +4004,16 @@ label {
   padding-bottom: 128px;
 }
 
+.pb-48 {
+  padding-bottom: 48px;
+}
+
 .pr-12 {
   padding-right: 12px;
+}
+
+.pt-16 {
+  padding-top: 16px;
 }
 
 .pt-24 {
@@ -4027,10 +4030,6 @@ label {
 
 .pt-96 {
   padding-top: 96px;
-}
-
-.pt-16 {
-  padding-top: 16px;
 }
 
 .text-left {
@@ -4092,15 +4091,6 @@ label {
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
-}
-
-.text-xs {
-  font-size: 0.75rem;
-  line-height: 1rem;
-}
-
-.text-\[12px\] {
-  font-size: 12px;
 }
 
 .text-\[14px\] {

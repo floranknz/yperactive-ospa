@@ -33,6 +33,31 @@ add_filter('wpcf7_form_elements', function($content) {
     return $content;
 });
 
+// Add extra settings theme customization
+function ospa_customize_register( $wp_customize ) {
+    // Add a section for the header button
+    $wp_customize->add_section( 'header_button_section', array(
+        'title'      => __( 'Bouton "Réserver"', 'ospa' ),
+        'priority'   => 30,
+    ));
+
+    // Add a setting for the header button page link
+    $wp_customize->add_setting( 'header_button_page', array(
+        'default'           => '',
+        'sanitize_callback' => 'absint',
+    ));
+
+    // Add a control to select the page
+    $wp_customize->add_control( 'header_button_page', array(
+        'label'    => __( 'Sélectionnez une page à associer au bouton', 'ospa' ),
+        'section'  => 'header_button_section',
+        'type'     => 'dropdown-pages',
+    ));
+}
+add_action( 'customize_register', 'ospa_customize_register' );
+
+
+
 // Add documentation with Notion iframe
 function register_menu_document() {
     add_menu_page(

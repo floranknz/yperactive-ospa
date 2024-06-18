@@ -46,7 +46,15 @@
                     'items_wrap' => '<ul class="navbar-menu-mobile hidden">%3$s</ul>',
                 ) );
                 ?>
-                <button class="btn btn-primary">Réserver</button>
+                <?php
+                $header_button_page_id = get_theme_mod( 'header_button_page' );
+                if ( $header_button_page_id ) {
+                    $header_button_url = get_permalink( $header_button_page_id );
+                } else {
+                    $header_button_url = '#';
+                }
+                ?>
+                <a href="<?php echo esc_url( $header_button_url ); ?>" class="btn btn-primary">Réserver</a>
                 <div class="mobile-menu md:hidden flex items-center justify-center h-40 w-40 border border-soft-white-100/25 rounded cursor-pointer"><i class="bx bx-sm bx-menu-alt-right"></i></div>
             </div>
         </div>
