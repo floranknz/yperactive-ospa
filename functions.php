@@ -34,11 +34,28 @@ add_filter('wpcf7_form_elements', function($content) {
 });
 
 // Add extra settings theme customization
-function ospa_customize_register( $wp_customize ) {
+function mytheme_customize_register( $wp_customize ) {
     // Add a section for the header button
     $wp_customize->add_section( 'header_button_section', array(
-        'title'      => __( 'Bouton "Réserver"', 'ospa' ),
+        'title'      => __( 'Header Button', 'mytheme' ),
         'priority'   => 30,
+    ));
+
+    // Add a setting for the header button link type
+    $wp_customize->add_setting( 'header_button_link_type', array(
+        'default'           => 'page',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    // Add a control for the header button link type
+    $wp_customize->add_control( 'header_button_link_type', array(
+        'label'    => __( 'Link Type', 'mytheme' ),
+        'section'  => 'header_button_section',
+        'type'     => 'radio',
+        'choices'  => array(
+            'page' => __( 'Page', 'mytheme' ),
+            'url'  => __( 'URL', 'mytheme' ),
+        ),
     ));
 
     // Add a setting for the header button page link
@@ -49,12 +66,38 @@ function ospa_customize_register( $wp_customize ) {
 
     // Add a control to select the page
     $wp_customize->add_control( 'header_button_page', array(
-        'label'    => __( 'Sélectionnez une page à associer au bouton', 'ospa' ),
+        'label'    => __( 'Select Page for Header Button', 'mytheme' ),
         'section'  => 'header_button_section',
         'type'     => 'dropdown-pages',
+        'active_callback' => 'mytheme_is_page_selected',
+    ));
+
+    // Add a setting for the header button custom URL
+    $wp_customize->add_setting( 'header_button_url', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+
+    // Add a control to enter the custom URL
+    $wp_customize->add_control( 'header_button_url', array(
+        'label'    => __( 'Enter URL for Header Button', 'mytheme' ),
+        'section'  => 'header_button_section',
+        'type'     => 'url',
+        'active_callback' => 'mytheme_is_url_selected',
     ));
 }
-add_action( 'customize_register', 'ospa_customize_register' );
+add_action( 'customize_register', 'mytheme_customize_register' );
+
+// Callback function to check if 'page' is selected
+function mytheme_is_page_selected( $control ) {
+    return $control->manager->get_setting( 'header_button_link_type' )->value() === 'page';
+}
+
+// Callback function to check if 'url' is selected
+function mytheme_is_url_selected( $control ) {
+    return $control->manager->get_setting( 'header_button_link_type' )->value() === 'url';
+}
+
 
 
 

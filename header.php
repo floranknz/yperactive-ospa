@@ -47,11 +47,12 @@
                 ) );
                 ?>
                 <?php
-                $header_button_page_id = get_theme_mod( 'header_button_page' );
-                if ( $header_button_page_id ) {
-                    $header_button_url = get_permalink( $header_button_page_id );
+                $link_type = get_theme_mod( 'header_button_link_type', 'page' );
+                if ( $link_type === 'page' ) {
+                    $header_button_page_id = get_theme_mod( 'header_button_page' );
+                    $header_button_url = $header_button_page_id ? get_permalink( $header_button_page_id ) : '#';
                 } else {
-                    $header_button_url = '#';
+                    $header_button_url = get_theme_mod( 'header_button_url', '#' );
                 }
                 ?>
                 <a href="<?php echo esc_url( $header_button_url ); ?>" class="btn btn-primary">Réserver</a>
