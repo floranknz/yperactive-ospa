@@ -51,11 +51,13 @@
                 if ( $link_type === 'page' ) {
                     $header_button_page_id = get_theme_mod( 'header_button_page' );
                     $header_button_url = $header_button_page_id ? get_permalink( $header_button_page_id ) : '#';
+                    $target_attr = '';
                 } else {
                     $header_button_url = get_theme_mod( 'header_button_url', '#' );
+                    $target_attr = ' target="_blank"';
                 }
                 ?>
-                <a href="<?php echo esc_url( $header_button_url ); ?>" class="btn btn-primary">Réserver</a>
+                <a href="<?php echo esc_url( $header_button_url ); ?>" class="btn btn-primary"<?php echo $target_attr; ?>>Réserver</a>
                 <div class="mobile-menu md:hidden flex items-center justify-center h-40 w-40 border border-soft-white-100/25 rounded cursor-pointer"><i class="bx bx-sm bx-menu-alt-right"></i></div>
             </div>
         </div>
