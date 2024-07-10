@@ -52,7 +52,7 @@
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/opass-logo.png" class="w-80" alt="O'Club" />
                     <h3 class="title-1">Premium</h3>
                 </div>
-                <div class="subscription-details list-disc leading-10 list-inside mb-48">
+                <div class="subscription-details list-disc leading-10 list-inside mb-48 min-h-[200px]">
                     <li>Accès illimité à l’espace aqua-sensoriel, selon formule</li>
                     <li>15% de réduction sur les soins et les produits</li>
                     <li>15% de réduction au restaurant O’Bistroy</li>
@@ -60,8 +60,8 @@
                     <li class="body-1 text-mineral-green-400">1 soin au choix offert chaque mois**</li>
                 </div>
             </ul>
-            <div class="subscription-pricing border-t border-outer-space-100 h-full justify-center">
-                <div class="pricing-item flex flex-col items-center pt-24">
+            <div class="subscription-pricing border-t border-outer-space-100 h-full flex justify-center">
+                <div class="pricing-item flex flex-col items-center pt-24 min-h-[200px]">
                     <span class="pretitle-1 text-cherokee-800">7/7j (all day)</span>
                     <span class="title-3">190 € / mois (engagement 12 mois)</span>
                     <span class="body-2">240 € / mois (engagement 3 mois)</span>
