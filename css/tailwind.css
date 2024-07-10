@@ -76,7 +76,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
         @apply font-body text-outer-space-700 bg-soft-white-100;
         font-weight: 300;
     }
-    p a{
+    p a, li p, span a{
         @apply body-1 text-mineral-green-400;
     }
     strong{
