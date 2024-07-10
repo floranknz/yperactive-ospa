@@ -559,6 +559,10 @@ p a {
   color: rgb(81 123 115 / var(--tw-text-opacity));
 }
 
+strong{
+  font-weight: 600;
+}
+
 header .navbar-menu .menu-item a {
   display: flex;
   height: 40px;
@@ -1220,10 +1224,6 @@ label {
   right: -96px;
 }
 
-.top-0 {
-  top: 0px;
-}
-
 .isolate {
   isolation: isolate;
 }
@@ -1460,10 +1460,6 @@ label {
   margin: 24px;
 }
 
-.m-40 {
-  margin: 40px;
-}
-
 .m-32 {
   margin: 32px;
 }
@@ -1552,6 +1548,10 @@ label {
   margin-top: 40px;
 }
 
+.mt-48 {
+  margin-top: 48px;
+}
+
 .mt-8 {
   margin-top: 8px;
 }
@@ -1562,14 +1562,6 @@ label {
 
 .mt-\[350px\] {
   margin-top: 350px;
-}
-
-.mt-32 {
-  margin-top: 32px;
-}
-
-.mt-48 {
-  margin-top: 48px;
 }
 
 .box-border {
@@ -3806,6 +3798,11 @@ label {
   border-color: rgb(212 219 223 / var(--tw-border-opacity));
 }
 
+.border-outer-space-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(184 193 198 / var(--tw-border-opacity));
+}
+
 .border-outer-space-700 {
   --tw-border-opacity: 1;
   border-color: rgb(52 61 66 / var(--tw-border-opacity));
@@ -3824,24 +3821,19 @@ label {
   border-color: rgb(225 225 224 / var(--tw-border-opacity));
 }
 
-.border-outer-space-200 {
-  --tw-border-opacity: 1;
-  border-color: rgb(184 193 198 / var(--tw-border-opacity));
-}
-
 .bg-\[rgb\(255\2c 0\2c 0\)\] {
   --tw-bg-opacity: 1;
   background-color: rgb(255 0 0 / var(--tw-bg-opacity));
 }
 
+.bg-mineral-green-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(188 211 206 / var(--tw-bg-opacity));
+}
+
 .bg-mineral-green-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(81 123 115 / var(--tw-bg-opacity));
-}
-
-.bg-outer-space-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(212 219 223 / var(--tw-bg-opacity));
 }
 
 .bg-outer-space-200 {
@@ -3872,11 +3864,6 @@ label {
 .bg-soft-white-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-mineral-green-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(188 211 206 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-t {
@@ -4058,6 +4045,10 @@ label {
   padding-top: 24px;
 }
 
+.pt-32 {
+  padding-top: 32px;
+}
+
 .pt-48 {
   padding-top: 48px;
 }
@@ -4072,10 +4063,6 @@ label {
 
 .pt-\[200px\] {
   padding-top: 200px;
-}
-
-.pt-32 {
-  padding-top: 32px;
 }
 
 .text-left {
