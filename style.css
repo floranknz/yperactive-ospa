@@ -552,7 +552,7 @@ body {
   font-weight: 300;
 }
 
-p a, li p, span a {
+p a {
   font-size: 16px;
   font-weight: 400;
   --tw-text-opacity: 1;

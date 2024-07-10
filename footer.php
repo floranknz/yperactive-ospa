@@ -34,14 +34,14 @@
                 <?php echo do_shortcode('[sibwp_form id=1]') ?>
                 <div class="rs flex gap-8">
                 <a href="https://www.facebook.com/profile.php?id=61559599148033" target="_blank"><i class="bx bx-sm bxl-facebook-square"></i></a>
-                <a href="https://www.instagram.com/o_spa_by_sothys" target="_blank"><i class="bx bx-sm bxl-instagram"></i></a>
+                <a href="https://www.instagram.com/ospabysothys" target="_blank"><i class="bx bx-sm bxl-instagram"></i></a>
                 </div>
             </div>
         </div>
         <div class="legal-footer">
-            <span><a href="#">Mentions légales</a></span>
+            <span><a href="/legal">Mentions légales</a></span>
             <span class="dash"></span>
-            <span><a href="#">Conditions générales de vente</a></span>
+            <span><a href="/press">Presse</a></span>
             <span class="dash"></span>
             <span>Site internet réalisé par <a href="https://yperactive.com" target="_blank">Yperactive</a></span>
         </div>

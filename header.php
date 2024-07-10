@@ -19,7 +19,7 @@
             ?>
             <div class="rs flex gap-8 mt-4">
                 <a href="https://www.facebook.com/profile.php?id=61559599148033" target="_blank"><i class="bx bx-sm bxl-facebook-square"></i></a>
-                <a href="https://www.instagram.com/o_spa_by_sothys" target="_blank"><i class="bx bx-sm bxl-instagram"></i></a>
+                <a href="https://www.instagram.com/ospabysothys" target="_blank"><i class="bx bx-sm bxl-instagram"></i></a>
             </div>
         </div>
         <div class="separator hidden md:block w-full h-[1px] bg-pure-white opacity-30"></div>
