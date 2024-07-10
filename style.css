@@ -768,7 +768,7 @@ p {
 }
 
 .hero-full {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./img/hero-bg.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url("./img/hero-bg.jpg");
   background-size: cover;
   background-position: center;
 }
