@@ -5,7 +5,7 @@
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/spabysothys.png" alt="Spa by Sothys" class="w-[100px]" />
                 <div class="info text-[14px] mt-24 pt-16 border-t border-soft-white-400">
                     <p>28 Avenue de Pythagore, 33700 Mérignac</p>
-                    <a href="tel:000000000">05 00 00 00 00</a>
+                    <a href="tel:000000000">05 19 08 10 10</a>
                 </div>
             </div>
             <div class="md:w-3/12">

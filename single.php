@@ -15,6 +15,13 @@
             <div class="article-content mt-40">
                 <?php the_content(); ?>
             </div>
+            <div class="newsletter mt-48 pt-32 border-t border-outer-space-200">
+                <span class="pretitle-1 text-outer-space-400">Suivez-nous</span>
+                <p>Recevez nos dernières actualités et offres en vous inscrivant à la newsletter O'Spa</p>
+                <div class="newsletter-input w-1/2">
+                    <?php echo do_shortcode('[sibwp_form id=1]') ?>
+                </div>
+            </div>
         </div>
     </div>
 
