@@ -7,7 +7,7 @@
     <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/boxicons.min.css" rel="stylesheet">
 </head>
 <body <?php body_class(); ?>>
-    <header class="fixed w-full text-pure-white body-1 z-50 transition duration-300 max-md:border-b border-soft-white-100/30">
+    <header class="fixed top-0 w-full text-pure-white body-1 z-50 transition duration-300 max-md:border-b border-soft-white-100/30">
         <div class="container prenav hidden md:flex justify-end gap-32 py-12">
             <?php
                 wp_nav_menu(array(

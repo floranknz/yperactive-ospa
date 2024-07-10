@@ -111,10 +111,13 @@ get_header();
                 while ($query->have_posts()) : $query->the_post();
                 $thumbnail_url = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'full') : get_stylesheet_directory_uri() . '/img/default.jpg'; 
                 ?>
+                
                     <div class="slider-item">
-                        <img src="<?= $thumbnail_url ?>" alt="<?php the_title_attribute(); ?>" class="w-full h-auto object-cover aspect-[11/8]" />
-                        <span class="date pretitle-2 text-outer-space-400"><?php echo get_the_date('j F Y'); ?></span>
-                        <h3 class="title-3"><?php the_title(); ?></h3>
+                        <a href="<?= the_permalink() ?>">
+                            <img src="<?= $thumbnail_url ?>" alt="<?php the_title_attribute(); ?>" class="w-full h-auto object-cover aspect-[11/8]" />
+                            <span class="date pretitle-2 text-outer-space-400"><?php echo get_the_date('j F Y'); ?></span>
+                            <h3 class="title-3"><?php the_title(); ?></h3>
+                        </a>
                     </div>
                 <?php endwhile;
                 wp_reset_postdata(); // Reset the global post object

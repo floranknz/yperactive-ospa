@@ -1220,6 +1220,10 @@ label {
   right: -96px;
 }
 
+.top-0 {
+  top: 0px;
+}
+
 .isolate {
   isolation: isolate;
 }
@@ -1476,6 +1480,11 @@ label {
   margin-bottom: 80px;
 }
 
+.my-40 {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
 .-mt-64 {
   margin-top: -64px;
 }
@@ -1546,6 +1555,10 @@ label {
 
 .mt-\[350px\] {
   margin-top: 350px;
+}
+
+.mt-40 {
+  margin-top: 40px;
 }
 
 .box-border {
@@ -4034,6 +4047,18 @@ label {
 
 .pt-96 {
   padding-top: 96px;
+}
+
+.pt-\[210px\] {
+  padding-top: 210px;
+}
+
+.pt-144 {
+  padding-top: 144px;
+}
+
+.pt-\[200px\] {
+  padding-top: 200px;
 }
 
 .text-left {

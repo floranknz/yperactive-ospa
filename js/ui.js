@@ -52,14 +52,19 @@ function triggerMobileMenu() {
     }
 }
 
-window.addEventListener("scroll", (event) => {
-    let scrollPosition = window.scrollY;
-    if (scrollPosition > 2) {
-        triggerNavScroll(true);
-    } else {
-        triggerNavScroll(false);
-    }
-});
+// Change menu for articles + scroll event for others
+if(document.body.classList.contains("single")){
+    triggerNavScroll(true);
+}else{
+    window.addEventListener("scroll", (event) => {
+        let scrollPosition = window.scrollY;
+        if (scrollPosition > 2) {
+            triggerNavScroll(true);
+        } else {
+            triggerNavScroll(false);
+        }
+    });
+}
 
 menuItemsWithChildArray.forEach(menuItem => {
     const dropdown = menuItem.querySelector(".sub-menu");
