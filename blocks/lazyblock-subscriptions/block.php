@@ -60,7 +60,7 @@
                     <li class="body-1 text-mineral-green-400">1 soin au choix offert chaque mois**</li>
                 </div>
             </ul>
-            <div class="subscription-pricing border-t border-outer-space-100 h-full flex justify-center">
+            <div class="subscription-pricing border-t border-outer-space-100 h-full flex justify-center items-center">
                 <div class="pricing-item flex flex-col items-center pt-24">
                     <span class="pretitle-1 text-cherokee-800">7/7j (all day)</span>
                     <span class="title-3">190 € / mois (engagement 12 mois)</span>
