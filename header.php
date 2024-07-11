@@ -8,7 +8,14 @@
 </head>
 <body <?php body_class(); ?>>
     <header class="fixed w-full text-pure-white body-1 z-50 transition duration-300 max-md:border-b border-soft-white-100/30">
-        <div class="container prenav hidden md:flex justify-end gap-32 py-12">
+        <div class="container relative prenav hidden md:flex justify-end gap-32 py-12">
+            <div class="logo absolute left-0 -top-12 w-[150px] h-[150px] z-50 flex items-center justify-center bg-soft-white-100 p-8">
+                <?php if ( has_custom_logo() ) {
+                    the_custom_logo();
+                } else { ?>
+                    <a href="<?= get_site_url() ?>"><img src="<?= get_stylesheet_directory_uri(); ?>/img/ospa-black.svg" alt="<?php bloginfo('name'); ?>" /></a>
+                <?php } ?>
+            </div>
             <?php
                 wp_nav_menu(array(
                     'theme_location' => 'secondary',
@@ -23,14 +30,14 @@
             </div>
         </div>
         <div class="separator hidden md:block w-full h-[1px] bg-pure-white opacity-30"></div>
-        <div class="main-nav max-md:h-96 md:container max-md:mx-24 nav flex justify-between items-center">
-            <div class="logo w-[80px] h-[80px] flex items-center justify-center">
-                <?php if ( has_custom_logo() ) {
-                    the_custom_logo();
-                } else { ?>
-                    <a href="<?= get_site_url() ?>"><img src="<?= get_stylesheet_directory_uri(); ?>/img/ospa-white.svg" alt="<?php bloginfo('name'); ?>" /></a>
-                <?php } ?>
-            </div>
+        <div class="main-nav max-md:h-96 md:h-80 md:container max-md:mx-24 nav flex justify-between md:justify-end items-center">
+                <div class="md:hidden logo w-[80px] h-[80px] z-50 flex items-center justify-center p-8">
+                    <?php if ( has_custom_logo() ) {
+                        the_custom_logo();
+                    } else { ?>
+                        <a href="<?= get_site_url() ?>"><img src="<?= get_stylesheet_directory_uri(); ?>/img/ospa-white.svg" alt="<?php bloginfo('name'); ?>" /></a>
+                    <?php } ?>
+                </div>
             <div class="navbar flex gap-32 items-center">
                 <?php
                 wp_nav_menu( array(

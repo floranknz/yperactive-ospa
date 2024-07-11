@@ -23,7 +23,11 @@ get_header();
     <i class="bx bx-sm bx-down-arrow-circle absolute mt-[350px] animatecss animatecss-pulse animatecss-infinite"></i>
 </div>
 
-<div class="bloc-2 container flex flex-col max-sm:flex-col gap-32 lg:flex-row justify-between items-center my-80">
+<div class="spabysothys container flex items-center justify-center my-80">
+    <img src="<?php echo get_stylesheet_directory_uri() ?>/img/spabysothys.png" alt="Spa by Sothys" class="w-[150px]" />
+</div>
+
+<div class="bloc-2 container flex flex-col max-sm:flex-col gap-32 lg:flex-row justify-between items-center my-80 max-md:overflow-hidden">
     <div class="basis-1/2 relative">
         <img src="<?= get_field('intro-image') ?>" alt="alt" class="rounded z-10 relative" />
         <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/gold-1.png" class="absolute bottom-[-118px] right-[-96px] z-0 w-[274px]" />
@@ -34,7 +38,6 @@ get_header();
         <p class="mb-24">
             <?= esc_html( get_field('intro-content') ) ?>
         </p>
-        <img src="<?php echo get_stylesheet_directory_uri() ?>/img/spabysothys.png" alt="Spa by Sothys" class="w-[120px]" />
     </div>
 </div>
 

@@ -83,7 +83,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
         font-weight: 600;
     }
     header .navbar-menu .menu-item a{
-        @apply flex items-center h-40;
+        @apply flex items-center h-40 font-bold;
     }
     header .sub-menu{
         @apply hidden absolute -ml-24 py-8 shadow-md bg-soft-white-100 min-w-64 text-outer-space-700 rounded;
@@ -105,6 +105,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     }
     header .navbar-menu-mobile .sub-menu-mobile{
         @apply bg-soft-white-200 px-16 rounded mb-16;
+    }
+    header .logo img{
+        @apply w-[100px];
     }
     .chevron {
         transition: transform 0.3s ease;
