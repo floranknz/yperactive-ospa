@@ -18,7 +18,7 @@
         <div class="subscription-item w-full md:w-1/2 flex flex-col justify-between grow-1 rounded shadow-md px-24 py-32 bg-soft-white-50">
             <ul class="subscription-content flex flex-col">
                 <div class="subscription-name flex flex-col items-center">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/opass-logo.png" class="w-80" alt="O'Club" />
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/oclub-logo.png" class="w-80" alt="O'Club" />
                     <h3 class="title-1">Access</h3>
                 </div>
                 <div class="subscription-details list-disc leading-10 list-inside mb-48 min-h-[200px]">
@@ -49,7 +49,7 @@
         <div class="subscription-item w-full md:w-1/2 flex flex-col justify-between grow-1 rounded shadow-md px-24 py-32 bg-soft-white-50">
             <ul class="subscription-content flex flex-col">
                 <div class="subscription-name flex flex-col items-center">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/opass-logo.png" class="w-80" alt="O'Club" />
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/oclub-logo.png" class="w-80" alt="O'Club" />
                     <h3 class="title-1">Premium</h3>
                 </div>
                 <div class="subscription-details list-disc leading-10 list-inside mb-48 min-h-[200px]">
