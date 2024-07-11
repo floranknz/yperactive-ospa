@@ -106,9 +106,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     header .navbar-menu-mobile .sub-menu-mobile{
         @apply bg-soft-white-200 px-16 rounded mb-16;
     }
-    header .logo img{
-        @apply w-[100px];
-    }
     .chevron {
         transition: transform 0.3s ease;
     }

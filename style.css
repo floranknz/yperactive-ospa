@@ -646,10 +646,6 @@ header .navbar-menu-mobile .sub-menu-mobile {
   padding-right: 16px;
 }
 
-header .logo img {
-  width: 100px;
-}
-
 .chevron {
   transition: transform 0.3s ease;
 }
@@ -1209,10 +1205,6 @@ label {
   position: sticky;
 }
 
-.-top-12 {
-  top: -12px;
-}
-
 .bottom-0 {
   bottom: 0px;
 }
@@ -1573,6 +1565,18 @@ label {
   margin-top: 350px;
 }
 
+.-mt-16 {
+  margin-top: -16px;
+}
+
+.-mt-24 {
+  margin-top: -24px;
+}
+
+.-mt-32 {
+  margin-top: -32px;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -1841,16 +1845,16 @@ label {
   height: 96px;
 }
 
-.h-\[150px\] {
-  height: 150px;
-}
-
 .h-\[1px\] {
   height: 1px;
 }
 
 .h-\[400px\] {
   height: 400px;
+}
+
+.h-\[80px\] {
+  height: 80px;
 }
 
 .h-auto {
@@ -1892,8 +1896,12 @@ label {
   height: 100svh;
 }
 
-.h-\[80px\] {
-  height: 80px;
+.h-\[120px\] {
+  height: 120px;
+}
+
+.h-\[100px\] {
+  height: 100px;
 }
 
 .max-h-0 {
@@ -2298,10 +2306,6 @@ label {
   width: 100px;
 }
 
-.w-\[120px\] {
-  width: 120px;
-}
-
 .w-\[150px\] {
   width: 150px;
 }
@@ -2365,8 +2369,8 @@ label {
   width: 100svw;
 }
 
-.w-\[180px\] {
-  width: 180px;
+.w-\[120px\] {
+  width: 120px;
 }
 
 .min-w-0 {
@@ -4044,6 +4048,11 @@ label {
 .py-80 {
   padding-top: 80px;
   padding-bottom: 80px;
+}
+
+.py-16 {
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 .pb-128 {
@@ -13611,10 +13620,6 @@ label {
     display: none;
   }
 
-  .md\:h-80 {
-    height: 80px;
-  }
-
   .md\:w-0 {
     width: 0px;
   }
@@ -14266,10 +14271,6 @@ label {
 
   .md\:flex-col {
     flex-direction: column;
-  }
-
-  .md\:justify-end {
-    justify-content: flex-end;
   }
 
   .md\:gap-24 {
