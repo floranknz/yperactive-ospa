@@ -15,7 +15,7 @@ function register_my_menus() {
 add_action( 'init', 'register_my_menus' );
 
 function enqueue_styles() {
-    wp_enqueue_style('tailwind', get_template_directory_uri() . '/style.css', array(), '1.0.1', 'all');
+    wp_enqueue_style('tailwind', get_template_directory_uri() . '/style.css', array(), '1.0.2', 'all');
     wp_enqueue_style('boxicons', get_template_directory_uri() . '/css/boxicons.min.css');
 }
 add_action('wp_enqueue_scripts', 'enqueue_styles');
