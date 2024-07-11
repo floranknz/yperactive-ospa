@@ -27,8 +27,7 @@ function triggerNavScroll(state) {
         logoElem.src = logo.black;
         headerElem.classList.add("transition", "duration-300");
         if(window.innerWidth > 768){
-            logoContainerElem.classList.remove("w-112", "h-112");
-            logoContainerElem.classList.add("w-80", "h-80");
+            logoContainerElem.classList.remove("md:w-112", "md:h-112");
             navbarElem.classList.remove("-mt-32");
         }
     } else {
@@ -40,8 +39,7 @@ function triggerNavScroll(state) {
         mobileMenuElem.classList.remove("border-outer-space-700");
         logoElem.src = logo.white;
         if(window.innerWidth > 768){
-            logoContainerElem.classList.add("w-112", "h-112");
-            logoContainerElem.classList.remove("w-80", "h-80");
+            logoContainerElem.classList.add("md:w-112", "md:h-112");
             navbarElem.classList.add("-mt-32");
         }
     }
