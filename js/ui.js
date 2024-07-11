@@ -25,10 +25,12 @@ function triggerNavScroll(state) {
         mobileMenuElem.classList.add("border-outer-space-700");
         mobileMenuElem.classList.remove("border-soft-white-100/25");
         logoElem.src = logo.black;
-        logoContainerElem.classList.remove("w-112", "h-112");
-        logoContainerElem.classList.add("w-80", "h-80");
         headerElem.classList.add("transition", "duration-300");
-        navbarElem.classList.remove("-mt-32");
+        if(window.innerWidth > 768){
+            logoContainerElem.classList.remove("w-112", "h-112");
+            logoContainerElem.classList.add("w-80", "h-80");
+            navbarElem.classList.remove("-mt-32");
+        }
     } else {
         headerElem.classList.remove("bg-soft-white-100", "shadow-lg");
         headerElem.classList.add("text-pure-white");
@@ -36,10 +38,12 @@ function triggerNavScroll(state) {
         separatorElem.classList.remove("bg-outer-space-200");
         mobileMenuElem.classList.add("border-soft-white-100/25");
         mobileMenuElem.classList.remove("border-outer-space-700");
-        logoContainerElem.classList.add("w-112", "h-112");
-        logoContainerElem.classList.remove("w-80", "h-80");
         logoElem.src = logo.white;
-        navbarElem.classList.add("-mt-32");
+        if(window.innerWidth > 768){
+            logoContainerElem.classList.add("w-112", "h-112");
+            logoContainerElem.classList.remove("w-80", "h-80");
+            navbarElem.classList.add("-mt-32");
+        }
     }
 }
 

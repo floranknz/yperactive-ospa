@@ -13620,6 +13620,10 @@ label {
     display: none;
   }
 
+  .md\:h-112 {
+    height: 112px;
+  }
+
   .md\:w-0 {
     width: 0px;
   }

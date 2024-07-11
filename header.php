@@ -24,7 +24,7 @@
         </div>
         <div class="separator hidden md:block w-full h-[1px] bg-pure-white opacity-30"></div>
         <div class="main-nav max-md:h-96 md:container max-md:mx-24 nav flex justify-between items-center">
-            <div class="logo w-112 h-112 flex items-center">
+            <div class="logo w-80 h-80 md:w-112 md:h-112 flex items-center">
                 <?php if ( has_custom_logo() ) {
                     the_custom_logo();
                 } else { ?>
