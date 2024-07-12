@@ -91,6 +91,7 @@ module.exports = {
             },
             ui: {
                 error: "#FF8383",
+                success: "#90C08C",
             }
         },
     },

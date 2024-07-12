@@ -238,6 +238,15 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     font-size: 24px;
     @apply text-ui-error mr-8; 
 }
+.wpcf7 form.sent .wpcf7-response-output{
+    @apply border border-ui-success rounded p-16 m-0 flex items-center;
+}
+.wpcf7 form.sent .wpcf7-response-output::before{
+    content:"\ed31";
+    font-family: "boxicons";
+    font-size: 24px;
+    @apply text-ui-success mr-8; 
+}
 .wpcf7 form.submitting .wpcf7-submit{
     display:none;
 }
