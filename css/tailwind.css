@@ -253,3 +253,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 .promotional-banner{
     @apply bg-mineral-green-600 text-center py-12 underline; 
 }
+.article-content p{
+    @apply mb-16;
+}

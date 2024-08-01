@@ -8706,6 +8706,10 @@ label {
   text-decoration-line: underline;
 }
 
+.article-content p {
+  margin-bottom: 16px;
+}
+
 @media (min-width: 640px) {
   footer .sm\:container {
     padding-top: 32px;
