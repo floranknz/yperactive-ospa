@@ -8710,6 +8710,19 @@ label {
   margin-bottom: 16px;
 }
 
+.article-content h2 {
+  font-family: Bon Vivant, Times New Roman;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: normal;
+}
+
+.article-content h3 {
+  font-family: Figtree, Arial;
+  font-weight: 300;
+  font-size: 18px;
+}
+
 @media (min-width: 640px) {
   footer .sm\:container {
     padding-top: 32px;
