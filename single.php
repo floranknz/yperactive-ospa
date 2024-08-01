@@ -3,14 +3,16 @@
     <?php 
         if (have_posts()) :
             while (have_posts()) : the_post();
-    ?>  
+
+            $thumbnail_url = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'full') : get_stylesheet_directory_uri() . '/img/default.jpg';
+    ?>
         
     <div class="container pt-[200px] mb-80 flex justify-center">
         <div class="w-8/12">
             <div class="article-header flex flex-col">
                 <span class="title-1 mb-0"><?= the_title() ?></span>
                 <span class="pretitle-1 text-outer-space-400 mb-24">Posté le <?= the_date() ?></span>
-                <img src="<?= the_post_thumbnail_url() ?>" class="object-cover aspect-[11/8]"/>
+                <img src="<?= $thumbnail_url ?>" class="object-cover aspect-[11/8]"/>
             </div>
             <div class="article-content mt-40">
                 <?php the_content(); ?>
