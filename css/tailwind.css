@@ -256,5 +256,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 .article-content p{
     @apply mb-16;
 }
-.article-content h2{ @apply title-2 }
-.article-content h3{ @apply title-3 }
+.article-content h2{ @apply title-2 mb-16 }
+.article-content h3{ @apply title-3 mb-16 }
+.article-content ul{ @apply list-disc list-inside }
