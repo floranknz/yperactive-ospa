@@ -29,7 +29,7 @@
                 ?>
             </div>
             <div class="md:w-4/12">
-                <span class="pretitle-2">Suivez-nous</span>
+                <span class="pretitle-2">Suivez nous</span>
                 <p>Recevez nos dernières actualités en vous inscrivant à la newsletter O'Spa.</p>
                 <?php echo do_shortcode('[sibwp_form id=1]') ?>
                 <div class="rs flex gap-8">
