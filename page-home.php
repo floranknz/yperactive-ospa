@@ -23,42 +23,35 @@ get_header();
     <i class="bx bx-sm bx-down-arrow-circle absolute mt-[350px] animatecss animatecss-pulse animatecss-infinite"></i>
 </div>
 
+<?php
+    if( have_rows('promotions') ) :
+?>
+
 <div class="promo-section container -mt-[148px]">
     <div class="promo-section-title flex items-center justify-center py-4 gap-16 text-pure-white mb-24">
         <div class="flex-grow border-t mx-4 border-pure-white"></div>
         <h2 class="text-center title-2 text-[32px]">Offres du moment</h2>
         <div class="flex-grow border-t mx-4 border-pure-white"></div>
-    </div>    
-    <div class="promo-container flex flex-col lg:flex-row gap-24">
-        <div class="promo-item flex md:max-lg:flex-row-reverse md:max-lg:items-center items-start flex-col bg-soft-white-50 border border-soft-white-400 rounded shadow-md hover:shadow-lg hover:scale-[1.02] transition-all">
-            <div class="promo-text p-24">
-                <h3 class="title-3 text-mineral-green-600 font-bold mb-4">Offre spéciale soin du visage</h3>
-                <p>Tout le mois d’octobre, découvrez notre offre spéciale.</p>
+    </div>
+
+    <div class="promo-container flex flex-col justify-center lg:flex-row gap-24">
+
+        <?php while( have_rows('promotions') ) : the_row(); ?>
+
+        <div class="promo-item flex basis-1/3 md:max-lg:flex-row-reverse md:max-lg:items-center items-start flex-col bg-soft-white-50 border border-soft-white-400 rounded shadow-md hover:shadow-lg hover:scale-[1.02] transition-all">
+            <div class="promo-text p-24 md:max-lg:w-1/2">
+                <h3 class="title-3 text-mineral-green-600 font-bold mb-4"><?= get_sub_field('title') ?></h3>
+                <p><?= get_sub_field('subtitle') ?></p>
             </div>
             <div class="promo-image mx-8 mb-8 md:max-lg:m-8 overflow-hidden md:max-lg:w-1/2 w-auto">
-                <img src="<?php echo get_stylesheet_directory_uri() ?>/img/placeholder/placeholder-169.png" class="rounded w-full aspect-[16/9]"/>
+                <img src="<?= get_sub_field('image') ?>" class="rounded w-full aspect-[16/9] object-cover" alt="<?= get_sub_field('title') ?>"/>
             </div>
         </div>
-        <div class="promo-item flex md:max-lg:flex-row-reverse md:max-lg:items-center items-start flex-col bg-soft-white-50 border border-soft-white-400 rounded shadow-md hover:shadow-lg hover:scale-[1.02] transition-all">
-            <div class="promo-text p-24">
-                <h3 class="title-3 text-mineral-green-600 font-bold mb-4">Offre spéciale soin du visage</h3>
-                <p>Tout le mois d’octobre, découvrez notre offre spéciale.</p>
-            </div>
-            <div class="promo-image mx-8 mb-8 md:max-lg:m-8 overflow-hidden md:max-lg:w-1/2 w-auto">
-                <img src="<?php echo get_stylesheet_directory_uri() ?>/img/placeholder/placeholder-169.png" class="rounded w-full aspect-[16/9]"/>
-            </div>
-        </div>
-        <div class="promo-item flex md:max-lg:flex-row-reverse md:max-lg:items-center items-start flex-col bg-soft-white-50 border border-soft-white-400 rounded shadow-md hover:shadow-lg hover:scale-[1.02] transition-all">
-            <div class="promo-text p-24">
-                <h3 class="title-3 text-mineral-green-600 font-bold mb-4">Offre spéciale soin du visage</h3>
-                <p>Tout le mois d’octobre, découvrez notre offre spéciale.</p>
-            </div>
-            <div class="promo-image mx-8 mb-8 md:max-lg:m-8 overflow-hidden md:max-lg:w-1/2 w-auto">
-                <img src="<?php echo get_stylesheet_directory_uri() ?>/img/placeholder/placeholder-169.png" class="rounded w-full aspect-[16/9]"/>
-            </div>
-        </div>
+        <?php endwhile; ?>
     </div>
 </div>
+
+<?php endif; ?>
 
 <div class="bloc-2 container flex flex-col max-sm:flex-col gap-32 lg:flex-row justify-between items-center my-80 max-md:overflow-hidden">
     <div class="basis-1/2 relative">
