@@ -30,30 +30,30 @@ get_header();
         <div class="flex-grow border-t mx-4 border-pure-white"></div>
     </div>    
     <div class="promo-container flex flex-col lg:flex-row gap-24">
-        <div class="promo-item flex flex-row-reverse items-center lg:items-start lg:flex-col bg-soft-white-50 border border-soft-white-400 rounded shadow-md hover:shadow-lg hover:scale-[1.02] transition-all">
+        <div class="promo-item flex md:max-lg:flex-row-reverse md:max-lg:items-center items-start flex-col bg-soft-white-50 border border-soft-white-400 rounded shadow-md hover:shadow-lg hover:scale-[1.02] transition-all">
             <div class="promo-text p-24">
                 <h3 class="title-3 text-mineral-green-600 font-bold mb-4">Offre spéciale soin du visage</h3>
                 <p>Tout le mois d’octobre, découvrez notre offre spéciale.</p>
             </div>
-            <div class="lg:float-none promo-image m-8 lg:mt-0 overflow-hidden w-1/2 lg:w-auto">
+            <div class="promo-image mx-8 mb-8 md:max-lg:m-8 overflow-hidden md:max-lg:w-1/2 w-auto">
                 <img src="<?php echo get_stylesheet_directory_uri() ?>/img/placeholder/placeholder-169.png" class="rounded w-full aspect-[16/9]"/>
             </div>
         </div>
-        <div class="promo-item flex flex-row-reverse items-center lg:items-start lg:flex-col bg-soft-white-50 border border-soft-white-400 rounded shadow-md hover:shadow-lg hover:scale-[1.02] transition-all">
+        <div class="promo-item flex md:max-lg:flex-row-reverse md:max-lg:items-center items-start flex-col bg-soft-white-50 border border-soft-white-400 rounded shadow-md hover:shadow-lg hover:scale-[1.02] transition-all">
             <div class="promo-text p-24">
                 <h3 class="title-3 text-mineral-green-600 font-bold mb-4">Offre spéciale soin du visage</h3>
                 <p>Tout le mois d’octobre, découvrez notre offre spéciale.</p>
             </div>
-            <div class="lg:float-none promo-image m-8 lg:mt-0 overflow-hidden w-1/2 lg:w-auto">
+            <div class="promo-image mx-8 mb-8 md:max-lg:m-8 overflow-hidden md:max-lg:w-1/2 w-auto">
                 <img src="<?php echo get_stylesheet_directory_uri() ?>/img/placeholder/placeholder-169.png" class="rounded w-full aspect-[16/9]"/>
             </div>
         </div>
-        <div class="promo-item flex flex-row-reverse items-center lg:items-start lg:flex-col bg-soft-white-50 border border-soft-white-400 rounded shadow-md hover:shadow-lg hover:scale-[1.02] transition-all">
+        <div class="promo-item flex md:max-lg:flex-row-reverse md:max-lg:items-center items-start flex-col bg-soft-white-50 border border-soft-white-400 rounded shadow-md hover:shadow-lg hover:scale-[1.02] transition-all">
             <div class="promo-text p-24">
                 <h3 class="title-3 text-mineral-green-600 font-bold mb-4">Offre spéciale soin du visage</h3>
                 <p>Tout le mois d’octobre, découvrez notre offre spéciale.</p>
             </div>
-            <div class="lg:float-none promo-image m-8 lg:mt-0 overflow-hidden w-1/2 lg:w-auto">
+            <div class="promo-image mx-8 mb-8 md:max-lg:m-8 overflow-hidden md:max-lg:w-1/2 w-auto">
                 <img src="<?php echo get_stylesheet_directory_uri() ?>/img/placeholder/placeholder-169.png" class="rounded w-full aspect-[16/9]"/>
             </div>
         </div>

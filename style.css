@@ -1473,6 +1473,10 @@ label {
   margin: 8px;
 }
 
+.m-auto {
+  margin: auto;
+}
+
 .mx-4 {
   margin-left: 4px;
   margin-right: 4px;
@@ -1501,6 +1505,11 @@ label {
 .my-80 {
   margin-top: 80px;
   margin-bottom: 80px;
+}
+
+.my-8 {
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .-mt-32 {
@@ -18595,6 +18604,24 @@ label {
   .md\:drop-shadow-xl {
     --tw-drop-shadow: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
     filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+  }
+
+  @media not all and (min-width: 1024px) {
+    .md\:max-lg\:m-8 {
+      margin: 8px;
+    }
+
+    .md\:max-lg\:w-1\/2 {
+      width: 50%;
+    }
+
+    .md\:max-lg\:flex-row-reverse {
+      flex-direction: row-reverse;
+    }
+
+    .md\:max-lg\:items-center {
+      align-items: center;
+    }
   }
 }
 
