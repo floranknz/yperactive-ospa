@@ -38,8 +38,8 @@ get_header();
 
         <?php while( have_rows('promotions') ) : the_row(); ?>
 
-        <a href="<?= get_sub_field('link') ?>" class="cursor-pointer">
-            <div class="promo-item flex basis-1/3 md:max-lg:flex-row-reverse md:max-lg:items-center items-start flex-col bg-soft-white-50 border border-soft-white-400 rounded shadow-md hover:shadow-lg hover:scale-[1.02] transition-all">
+        <a href="<?= get_sub_field('link') ?>" class="basis-1/3 cursor-pointer">
+            <div class="promo-item flex md:max-lg:flex-row-reverse md:max-lg:items-center items-start flex-col bg-soft-white-50 border border-soft-white-400 rounded shadow-md hover:shadow-lg hover:scale-[1.02] transition-all">
                 <div class="promo-text p-24 md:max-lg:w-1/2">
                     <h3 class="title-3 text-mineral-green-600 font-bold mb-4"><?= get_sub_field('title') ?></h3>
                     <p><?= get_sub_field('subtitle') ?></p>
