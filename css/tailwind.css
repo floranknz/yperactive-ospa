@@ -207,6 +207,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     .wysiwyg h2{ @apply title-2};
     .wysiwyg h3{ @apply title-3};
 
+    .homepage-header{
+        height: calc(100vh - 64px)
+    }
+
 }
 
 /* ------- To prevent purge ------- */

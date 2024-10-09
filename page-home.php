@@ -12,7 +12,7 @@ get_header();
     $block3 = get_field("bloc-3");
 ?>
 
-<div class="hero-full flex flex-col gap-48 items-center justify-center h-screen bg-mineral-green-400 text-pure-white px-24">
+<div class="hero-full flex flex-col gap-48 items-center justify-center bg-mineral-green-400 text-pure-white px-24 homepage-header">
     <div class="md:container flex flex-row justify-center">
         <div class="content flex md:w-1/2 gap-8 flex-col justify-center items-center text-center">
             <span class="pretitle-1 animatecss animatecss-fadeInDown">Centre de soins et de bien-être</span>
@@ -23,8 +23,41 @@ get_header();
     <i class="bx bx-sm bx-down-arrow-circle absolute mt-[350px] animatecss animatecss-pulse animatecss-infinite"></i>
 </div>
 
-<div class="spabysothys container flex items-center justify-center my-80">
-    <img src="<?php echo get_stylesheet_directory_uri() ?>/img/spabysothys.png" alt="Spa by Sothys" class="w-[150px]" />
+<div class="promo-section container -mt-[148px]">
+    <div class="promo-section-title flex items-center justify-center py-4 gap-16 text-pure-white mb-24">
+        <div class="flex-grow border-t mx-4 border-pure-white"></div>
+        <h2 class="text-center title-2 text-[32px]">Offres du moment</h2>
+        <div class="flex-grow border-t mx-4 border-pure-white"></div>
+    </div>    
+    <div class="promo-container flex flex-col lg:flex-row gap-24">
+        <div class="promo-item flex flex-row-reverse items-center lg:items-start lg:flex-col bg-soft-white-50 border border-soft-white-400 rounded shadow-md hover:shadow-lg hover:scale-[1.02] transition-all">
+            <div class="promo-text p-24">
+                <h3 class="title-3 text-mineral-green-600 font-bold mb-4">Offre spéciale soin du visage</h3>
+                <p>Tout le mois d’octobre, découvrez notre offre spéciale.</p>
+            </div>
+            <div class="lg:float-none promo-image m-8 lg:mt-0 overflow-hidden w-1/2 lg:w-auto">
+                <img src="<?php echo get_stylesheet_directory_uri() ?>/img/placeholder/placeholder-169.png" class="rounded w-full aspect-[16/9]"/>
+            </div>
+        </div>
+        <div class="promo-item flex flex-row-reverse items-center lg:items-start lg:flex-col bg-soft-white-50 border border-soft-white-400 rounded shadow-md hover:shadow-lg hover:scale-[1.02] transition-all">
+            <div class="promo-text p-24">
+                <h3 class="title-3 text-mineral-green-600 font-bold mb-4">Offre spéciale soin du visage</h3>
+                <p>Tout le mois d’octobre, découvrez notre offre spéciale.</p>
+            </div>
+            <div class="lg:float-none promo-image m-8 lg:mt-0 overflow-hidden w-1/2 lg:w-auto">
+                <img src="<?php echo get_stylesheet_directory_uri() ?>/img/placeholder/placeholder-169.png" class="rounded w-full aspect-[16/9]"/>
+            </div>
+        </div>
+        <div class="promo-item flex flex-row-reverse items-center lg:items-start lg:flex-col bg-soft-white-50 border border-soft-white-400 rounded shadow-md hover:shadow-lg hover:scale-[1.02] transition-all">
+            <div class="promo-text p-24">
+                <h3 class="title-3 text-mineral-green-600 font-bold mb-4">Offre spéciale soin du visage</h3>
+                <p>Tout le mois d’octobre, découvrez notre offre spéciale.</p>
+            </div>
+            <div class="lg:float-none promo-image m-8 lg:mt-0 overflow-hidden w-1/2 lg:w-auto">
+                <img src="<?php echo get_stylesheet_directory_uri() ?>/img/placeholder/placeholder-169.png" class="rounded w-full aspect-[16/9]"/>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="bloc-2 container flex flex-col max-sm:flex-col gap-32 lg:flex-row justify-between items-center my-80 max-md:overflow-hidden">
@@ -38,6 +71,7 @@ get_header();
         <p class="mb-24">
             <?= esc_html( get_field('intro-content') ) ?>
         </p>
+        <img src="<?php echo get_stylesheet_directory_uri() ?>/img/spabysothys.png" alt="Spa by Sothys" class="w-[120px]" />
     </div>
 </div>
 
