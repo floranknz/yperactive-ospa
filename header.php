@@ -58,7 +58,7 @@
                     $target_attr = ' target="_blank"';
                 }
                 ?>
-                <a href="<?php echo esc_url( $header_button_url ); ?>" class="btn btn-primary"<?php echo $target_attr; ?>>Réserver</a>
+                <a href="<?php echo esc_url( $header_button_url ); ?>" class="btn btn-primary bg-pure-white text-mineral-green-800 hover:bg-soft-white-300"<?php echo $target_attr; ?>>Réserver</a>
                 <div class="mobile-menu md:hidden flex items-center justify-center h-40 w-40 border border-soft-white-100/25 rounded cursor-pointer"><i class="bx bx-sm bx-menu-alt-right"></i></div>
             </div>
         </div>

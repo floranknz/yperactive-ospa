@@ -3,6 +3,7 @@ const separatorElem = document.querySelector("header > .separator");
 const mobileMenuElem = document.querySelector("header > .main-nav > .navbar > .mobile-menu")
 const navbarMenuElem = document.querySelector("header > .main-nav > .navbar > .navbar-menu")
 const navbarMenuMobileElem = document.querySelector("header > .main-nav > .navbar > .navbar-menu-mobile")
+const primaryButtonElem = document.querySelector("header > .main-nav > .navbar > .btn-primary")
 const logoElem = document.querySelector("header > .main-nav > .logo > a > img");
 const logoContainerElem = document.querySelector("header > .main-nav > .logo");
 const navbarElem = document.querySelector("header > .main-nav > .navbar");
@@ -24,6 +25,7 @@ function triggerNavScroll(state) {
         separatorElem.classList.add("bg-outer-space-200");
         mobileMenuElem.classList.add("border-outer-space-700");
         mobileMenuElem.classList.remove("border-soft-white-100/25");
+        primaryButtonElem.classList.remove("bg-pure-white", "text-mineral-green-800", "hover:bg-soft-white-300");
         logoElem.src = logo.black;
         headerElem.classList.add("transition", "duration-300");
         if(window.innerWidth > 768){
@@ -37,6 +39,7 @@ function triggerNavScroll(state) {
         separatorElem.classList.remove("bg-outer-space-200");
         mobileMenuElem.classList.add("border-soft-white-100/25");
         mobileMenuElem.classList.remove("border-outer-space-700");
+        primaryButtonElem.classList.add("bg-pure-white", "text-mineral-green-800", "hover:bg-soft-white-300");
         logoElem.src = logo.white;
         if(window.innerWidth > 768){
             logoContainerElem.classList.add("md:w-112", "md:h-112");
