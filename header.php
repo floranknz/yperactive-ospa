@@ -20,7 +20,8 @@
             ?>
             <div class="rs flex gap-8 mt-4">
                 <a href="https://www.facebook.com/profile.php?id=61559599148033" target="_blank"><i class="bx bx-sm bxl-facebook-square"></i></a>
-                <a href="https://www.instagram.com/ospabysothys" target="_blank"><i class="bx bx-sm bxl-instagram"></i></a>
+                <a href="https://www.instagram.com/ospacarewellness/" target="_blank"><i class="bx bx-sm bxl-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/o-spa-care-wellness-spa-by-sothys" target="_blank"><i class="bx bx-sm bxl-linkedin"></i></a>
             </div>
         </div>
         <div class="separator hidden md:block w-full h-[1px] bg-pure-white opacity-30"></div>
