@@ -32,7 +32,7 @@ get_header();
             <div class="icon w-64 h-64 bg-mineral-green-100 flex items-center justify-center rounded-full">
                 <i class="bx bx-md bx-calendar"></i>
             </div>
-            <span>Lundi : 12H30 - 21H</br>Mardi au samedi : 9H30 - 21H</br>Dimanche : 9H30 - 15H</span>
+            <span>Lundi : 12H30 - 20H</br>Mardi au samedi : 9H30 - 20H</br>Dimanche : 9H30 - 15H</span>
         </div>
     </div>
 </div>
