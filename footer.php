@@ -29,8 +29,10 @@
                 ?>
             </div>
             <div class="md:w-4/12">
-                <span class="pretitle-2">Suivez-nous</span>
-                <p>Recevez nos dernières actualités en vous inscrivant à la newsletter O'Spa.</p>
+                <span class="pretitle-2"><?php echo get_theme_mod('newsletter_footer_title', 'Suivez-nous'); ?></span>
+                <div class="newsletter-content">
+                    <?php echo wp_kses_post(get_theme_mod('newsletter_footer_content', 'Recevez nos dernières actualités en vous inscrivant à la newsletter O\'Spa.')); ?>
+                </div>
                 <?php echo do_shortcode('[sibwp_form id=1]') ?>
                 <div class="rs flex gap-8">
                 <a href="https://www.facebook.com/profile.php?id=61559599148033" target="_blank"><i class="bx bx-sm bxl-facebook-square"></i></a>

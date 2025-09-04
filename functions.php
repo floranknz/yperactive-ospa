@@ -85,6 +85,38 @@ function ospa_customize_register( $wp_customize ) {
         'type'     => 'url',
         'active_callback' => 'ospa_is_url_selected',
     ));
+
+    // Add a section for the newsletter footer
+    $wp_customize->add_section( 'newsletter_footer_section', array(
+        'title'      => __( 'Newsletter Footer', 'ospa' ),
+        'priority'   => 35,
+    ));
+
+    // Add a setting for the newsletter footer title
+    $wp_customize->add_setting( 'newsletter_footer_title', array(
+        'default'           => 'Suivez-nous',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    // Add a control for the newsletter footer title
+    $wp_customize->add_control( 'newsletter_footer_title', array(
+        'label'    => __( 'Titre', 'ospa' ),
+        'section'  => 'newsletter_footer_section',
+        'type'     => 'text',
+    ));
+
+    // Add a setting for the newsletter footer HTML content
+    $wp_customize->add_setting( 'newsletter_footer_content', array(
+        'default'           => 'Recevez nos dernières actualités en vous inscrivant à la newsletter O\'Spa.',
+        'sanitize_callback' => 'wp_kses_post',
+    ));
+
+    // Add a control for the newsletter footer HTML content
+    $wp_customize->add_control( 'newsletter_footer_content', array(
+        'label'    => __( 'Contenu HTML', 'ospa' ),
+        'section'  => 'newsletter_footer_section',
+        'type'     => 'textarea',
+    ));
 }
 add_action( 'customize_register', 'ospa_customize_register' );
 
