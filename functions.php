@@ -108,7 +108,7 @@ function ospa_customize_register( $wp_customize ) {
     // Add a setting for the newsletter footer HTML content
     $wp_customize->add_setting( 'newsletter_footer_content', array(
         'default'           => 'Recevez nos dernières actualités en vous inscrivant à la newsletter O\'Spa.',
-        'sanitize_callback' => 'wp_kses_post',
+        'sanitize_callback' => 'ospa_sanitize_html_content',
     ));
 
     // Add a control for the newsletter footer HTML content
@@ -128,6 +128,38 @@ function ospa_is_page_selected( $control ) {
 // Callback function to check if 'url' is selected
 function ospa_is_url_selected( $control ) {
     return $control->manager->get_setting( 'header_button_link_type' )->value() === 'url';
+}
+
+// Custom sanitization function for HTML content
+function ospa_sanitize_html_content( $content ) {
+    // Allow more HTML tags for newsletter content
+    $allowed_tags = array(
+        'p' => array(),
+        'br' => array(),
+        'strong' => array(),
+        'b' => array(),
+        'em' => array(),
+        'i' => array(),
+        'u' => array(),
+        'span' => array('class' => array(), 'style' => array()),
+        'div' => array('class' => array(), 'style' => array()),
+        'h1' => array('class' => array(), 'style' => array()),
+        'h2' => array('class' => array(), 'style' => array()),
+        'h3' => array('class' => array(), 'style' => array()),
+        'h4' => array('class' => array(), 'style' => array()),
+        'h5' => array('class' => array(), 'style' => array()),
+        'h6' => array('class' => array(), 'style' => array()),
+        'a' => array('href' => array(), 'target' => array(), 'class' => array(), 'style' => array()),
+        'img' => array('src' => array(), 'alt' => array(), 'class' => array(), 'style' => array(), 'width' => array(), 'height' => array()),
+        'ul' => array('class' => array(), 'style' => array()),
+        'ol' => array('class' => array(), 'style' => array()),
+        'li' => array('class' => array(), 'style' => array()),
+        'blockquote' => array('class' => array(), 'style' => array()),
+        'code' => array('class' => array(), 'style' => array()),
+        'pre' => array('class' => array(), 'style' => array()),
+    );
+    
+    return wp_kses( $content, $allowed_tags );
 }
 
 

@@ -31,9 +31,16 @@
             <div class="md:w-4/12">
                 <span class="pretitle-2"><?php echo get_theme_mod('newsletter_footer_title', 'Suivez-nous'); ?></span>
                 <div class="newsletter-content">
-                    <?php echo wp_kses_post(get_theme_mod('newsletter_footer_content', 'Recevez nos dernières actualités en vous inscrivant à la newsletter O\'Spa.')); ?>
+                    <?php 
+                    $content = get_theme_mod('newsletter_footer_content', 'Recevez nos dernières actualités en vous inscrivant à la newsletter O\'Spa.');
+                    // Process do_shortcode() calls in the content
+                    $content = preg_replace_callback('/do_shortcode\([\'"]([^\'"]+)[\'"]\)/', function($matches) {
+                        return do_shortcode($matches[1]);
+                    }, $content);
+                    // Allow HTML markup and shortcodes
+                    echo do_shortcode($content);
+                    ?>
                 </div>
-                <?php echo do_shortcode('[sibwp_form id=1]') ?>
                 <div class="rs flex gap-8">
                 <a href="https://www.facebook.com/profile.php?id=61559599148033" target="_blank"><i class="bx bx-sm bxl-facebook-square"></i></a>
                 <a href="https://www.instagram.com/ospacarewellness/" target="_blank"><i class="bx bx-sm bxl-instagram"></i></a>
