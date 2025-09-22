@@ -113,7 +113,17 @@ get_header();
             <p class="mb-24">
                 <?= esc_html( get_field('banner-content') ) ?>
             </p>
-            <a class="btn btn-secondary" href="<?= esc_html( get_field('banner-cta-link') ) ?>"><?= esc_html( get_field('banner-cta-label') ) ?></a>
+            <?php 
+            $cta_type = get_field('banner-cta-type');
+            $cta_link = get_field('banner-cta-internalLink');
+            $cta_label = get_field('banner-cta-label');
+            
+            if ($cta_type === 'external') {
+                echo '<a class="btn btn-secondary" href="' . esc_html($cta_link) . '" target="_blank" rel="noopener noreferrer">' . esc_html($cta_label) . '</a>';
+            } else {
+                echo '<a class="btn btn-secondary" href="' . esc_html($cta_link) . '">' . esc_html($cta_label) . '</a>';
+            }
+            ?>
         </div>
     </div>
 </div>
