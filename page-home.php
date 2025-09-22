@@ -115,15 +115,17 @@ get_header();
             </p>
             <?php 
             $cta_type = get_field('banner-cta-type');
-            $cta_link = get_field('banner-cta-internalLink');
             $cta_label = get_field('banner-cta-label');
             
-            if ($cta_type === 'external') {
-                echo '<a class="btn btn-secondary" href="' . esc_html($cta_link) . '" target="_blank" rel="noopener noreferrer">' . esc_html($cta_label) . '</a>';
-            } else {
-                echo '<a class="btn btn-secondary" href="' . esc_html($cta_link) . '">' . esc_html($cta_label) . '</a>';
+            if ($cta_type === 'internal') {
+                $cta_href = get_field('banner-cta-internalLink');
+                $cta_target = '';
+            } elseif ($cta_type === 'external') {
+                $cta_href = get_field('banner-cta-externalLink');
+                $cta_target = ' target="_blank"';
             }
             ?>
+            <a class="btn btn-secondary" href="<?= esc_html( $cta_href ) ?>"<?= $cta_target ?>><?= esc_html( $cta_label ) ?></a>
         </div>
     </div>
 </div>
