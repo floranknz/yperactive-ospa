@@ -2,6 +2,9 @@
 
 add_theme_support( 'post-thumbnails' );
 
+// Include prestations functionality
+require_once get_template_directory() . '/prestations.php';
+
 function register_my_menus() {
     register_nav_menus(
         array(
@@ -188,5 +191,29 @@ function documentation_page_callback() {
     <?php
 }
 
+// Désactiver Gutenberg pour la page-soins
+function disable_gutenberg_for_soins_page($use_block_editor, $post) {
+    // Vérifier si c'est la page-soins par slug ou titre
+    if ($post && (
+        $post->post_name === 'soins' || 
+        $post->post_title === 'Soins' ||
+        $post->post_title === 'soins' ||
+        strpos($post->post_name, 'soins') !== false
+    )) {
+        return false;
+    }
+    return $use_block_editor;
+}
+add_filter('use_block_editor_for_post', 'disable_gutenberg_for_soins_page', 10, 2);
 
-?>
+// Alternative: Désactiver Gutenberg pour les pages avec un template spécifique
+function disable_gutenberg_for_page_template($use_block_editor, $post) {
+    if ($post && $post->post_type === 'page') {
+        $template = get_page_template_slug($post->ID);
+        if ($template === 'page-soins.php') {
+            return false;
+        }
+    }
+    return $use_block_editor;
+}
+add_filter('use_block_editor_for_post', 'disable_gutenberg_for_page_template', 10, 2);

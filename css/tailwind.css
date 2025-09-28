@@ -94,6 +94,15 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     header .sub-menu li a{
         @apply block py-8 px-24 hover:bg-soft-white-200;
     }
+    .booking-dropdown .booking-sub-menu{
+        @apply hidden absolute top-full left-0 mt-8 py-8 shadow-md bg-soft-white-100 w-full text-outer-space-700 rounded z-50;
+    }
+    .booking-dropdown .booking-sub-menu.open{
+        @apply block;
+    }
+    .booking-dropdown .booking-sub-menu a{
+        @apply block py-8 px-24 hover:bg-soft-white-200;
+    }
     header .navbar-menu-mobile{
         @apply absolute flex-col bg-pure-white text-outer-space-700 top-[76px] w-[calc(100vw-48px)] left-24 rounded px-24 py-8;
     }
@@ -263,3 +272,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 .article-content h2{ @apply title-2 mb-16 }
 .article-content h3{ @apply title-3 mb-16 }
 .article-content ul{ @apply list-disc list-inside }
+
+/* Tabs */
+
+.active-tab {
+                @apply border-b-[3px] border-mineral-green-400 text-mineral-green-400;
+}
