@@ -15,7 +15,7 @@ get_header();
 </div>
 
 <div class="container mt-80 mb-48">
-    <p><?= esc_html( get_field('intro') ); ?></p>
+    <p><?= get_field('intro'); ?></p>
 </div>
 <div class="container">
     <div class="tabs flex mb-48">
