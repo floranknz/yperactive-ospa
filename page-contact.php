@@ -7,7 +7,7 @@ get_header();
 ?>
 
 <div class="hero flex flex-col gap-48 items-center justify-center h-[400px] bg-mineral-green-400 text-pure-white px-24 pt-96">
-    <div class="md:container flex flex-row justify-center">
+    <div class="md:container flex flex-row justify-center mt-24">
         <div class="content flex md:w-1/2 gap-8 flex-col justify-center items-center text-center">
             <h1 class="title-1 text-pure-white animatecss animatecss-fadeInDown">Contactez-nous</h1>
         </div>
