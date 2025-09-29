@@ -951,11 +951,6 @@ function prestations_meta_box_callback( $post ) {
             <textarea id="prestation_description" name="prestation_description" rows="4" style="width: 100%;" required><?php echo esc_textarea( $description ); ?></textarea>
         </div>
 
-        <div style="margin-bottom: 20px;">
-            <label for="prestation_position" style="display: block; font-weight: 600; margin-bottom: 8px;"><?php _e( 'Position', 'ospa' ); ?></label>
-            <input type="number" id="prestation_position" name="prestation_position" value="<?php echo esc_attr( get_post_meta( $post->ID, '_prestation_position', true ) ); ?>" min="0" step="1" style="width: 100px;" />
-            <p style="margin: 5px 0 0 0; font-size: 12px; color: #666;"><?php _e( 'Position dans la catégorie (plus petit = affiché en premier)', 'ospa' ); ?></p>
-        </div>
 
         <div style="margin-bottom: 20px;">
             <label for="prestation_prix" style="display: block; font-weight: 600; margin-bottom: 8px;"><?php _e( 'Prix', 'ospa' ); ?></label>
@@ -1101,7 +1096,6 @@ function save_prestations_meta_box_data( $post_id ) {
     
     $fields = array(
         'prestation_description',
-        'prestation_position',
         'prestation_prix',
         'prestation_lien_solo',
         'prestation_lien_duo',

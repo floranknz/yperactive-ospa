@@ -62,7 +62,7 @@ get_header();
             }
         }
         
-        // Get prestations from "cours" category ordered by position (with fallback)
+        // Get prestations from "cours" category ordered alphabetically
         $cours_category = get_term_by( 'slug', 'cours', 'prestations_categories' );
         $cours_prestations = array();
         
@@ -70,21 +70,8 @@ get_header();
             $cours_prestations = get_posts( array(
                 'post_type' => 'prestations',
                 'posts_per_page' => -1,
-                'orderby' => array(
-                    'meta_value_num' => 'ASC',
-                    'title' => 'ASC'
-                ),
-                'meta_query' => array(
-                    'relation' => 'OR',
-                    array(
-                        'key' => 'prestation_position',
-                        'compare' => 'EXISTS'
-                    ),
-                    array(
-                        'key' => 'prestation_position',
-                        'compare' => 'NOT EXISTS'
-                    )
-                ),
+                'orderby' => 'title',
+                'order' => 'ASC',
                 'tax_query' => array(
                     array(
                         'taxonomy' => 'prestations_categories',
@@ -93,26 +80,6 @@ get_header();
                     ),
                 ),
             ) );
-            
-            // Sort cours prestations manually to handle mixed position values
-            usort( $cours_prestations, function( $a, $b ) {
-                $pos_a = get_post_meta( $a->ID, '_prestation_position', true );
-                $pos_b = get_post_meta( $b->ID, '_prestation_position', true );
-                
-                // If both have positions, sort by position
-                if ( $pos_a && $pos_b ) {
-                    return intval( $pos_a ) - intval( $pos_b );
-                }
-                // If only one has position, prioritize it
-                if ( $pos_a && ! $pos_b ) {
-                    return -1;
-                }
-                if ( ! $pos_a && $pos_b ) {
-                    return 1;
-                }
-                // If neither has position, sort by title
-                return strcmp( $a->post_title, $b->post_title );
-            } );
         }
         ?>
         
@@ -132,25 +99,12 @@ get_header();
             // Display "Soins"
             if ( ! empty( $categories_with_posts ) ) {
                 foreach ( $categories_with_posts as $category ) {
-                    // Get prestations for this category ordered by position (with fallback)
+                    // Get prestations for this category ordered alphabetically
                     $prestations = get_posts( array(
                         'post_type' => 'prestations',
                         'posts_per_page' => -1,
-                        'orderby' => array(
-                            'meta_value_num' => 'ASC',
-                            'title' => 'ASC'
-                        ),
-                        'meta_query' => array(
-                            'relation' => 'OR',
-                            array(
-                                'key' => 'prestation_position',
-                                'compare' => 'EXISTS'
-                            ),
-                            array(
-                                'key' => 'prestation_position',
-                                'compare' => 'NOT EXISTS'
-                            )
-                        ),
+                        'orderby' => 'title',
+                        'order' => 'ASC',
                         'tax_query' => array(
                             array(
                                 'taxonomy' => 'prestations_categories',
@@ -159,26 +113,6 @@ get_header();
                             ),
                         ),
                     ) );
-                    
-                    // Sort prestations manually to handle mixed position values
-                    usort( $prestations, function( $a, $b ) {
-                        $pos_a = get_post_meta( $a->ID, '_prestation_position', true );
-                        $pos_b = get_post_meta( $b->ID, '_prestation_position', true );
-                        
-                        // If both have positions, sort by position
-                        if ( $pos_a && $pos_b ) {
-                            return intval( $pos_a ) - intval( $pos_b );
-                        }
-                        // If only one has position, prioritize it
-                        if ( $pos_a && ! $pos_b ) {
-                            return -1;
-                        }
-                        if ( ! $pos_a && $pos_b ) {
-                            return 1;
-                        }
-                        // If neither has position, sort by title
-                        return strcmp( $a->post_title, $b->post_title );
-                    } );
                     
                     if ( ! empty( $prestations ) ) {
                         echo '<div class="category-section mb-48" data-category="' . esc_attr( $category->term_id ) . '">';
