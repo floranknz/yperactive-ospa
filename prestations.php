@@ -93,7 +93,7 @@ function register_prestations_categories() {
         'labels'                     => $labels,
         'hierarchical'               => true,
         'public'                     => true,
-        'show_ui'                    => false,
+        'show_ui'                    => true,
         'show_admin_column'          => true,
         'show_in_nav_menus'          => true,
         'show_tagcloud'              => true,
@@ -104,18 +104,61 @@ function register_prestations_categories() {
 }
 add_action( 'init', 'register_prestations_categories', 0 );
 
-// Hide the default Categories page from ALL users
-function hide_default_categories_menu() {
-    // Hide from Prestations submenu for all users
-    remove_submenu_page( 'edit.php?post_type=prestations', 'edit-tags.php?taxonomy=prestations_categories&post_type=prestations' );
+// Add disclaimer notice to the categories management page
+function add_prestations_categories_disclaimer() {
+    $screen = get_current_screen();
+    $current_user = wp_get_current_user();
     
-    // Also try alternative menu slug formats
-    remove_submenu_page( 'edit.php?post_type=prestations', 'edit-tags.php?taxonomy=prestations_categories' );
-    
-    // Remove the taxonomy menu completely
-    remove_menu_page( 'edit-tags.php?taxonomy=prestations_categories' );
+    // Check if we're on the default "categories" management page and user is fknezevic
+    if ( $screen && $screen->id === 'edit-prestations_categories' && $current_user->user_login === 'fknezevic' ) {
+        ?>
+        <div class="notice notice-info" style="margin: 20px 0; padding: 15px; background:rgb(255, 251, 233); border-left: 4px solid orange">
+            <h3 style="margin: 0 0 10px 0; color:orange">⚠️ Attention</h3>
+            <p style="margin: 0; font-size: 14px; line-height: 1.5;">
+                <strong>Cette page est dédiée uniquement au débuggage des catégories de prestations.</strong><br />Pour modifier les catégories, utilisez plutôt l'onglet <strong>Gérer les catégories</strong>.<br>
+            </p>
+        </div>
+        <?php
+    }
 }
-add_action( 'admin_menu', 'hide_default_categories_menu', 999 );
+add_action( 'admin_notices', 'add_prestations_categories_disclaimer' );
+
+// Add a more prominent notice at the top of the categories page
+function add_prestations_categories_top_notice() {
+    $screen = get_current_screen();
+    $current_user = wp_get_current_user();
+    
+    // Only show for fknezevic user
+    if ( $screen && $screen->id === 'edit-prestations_categories' && $current_user->user_login === 'fknezevic' ) {
+        // Notice content can be added here if needed
+    }
+}
+add_action( 'admin_footer', 'add_prestations_categories_top_notice' );
+
+// Restrict Categories page access to fknezevic user only
+function restrict_prestations_categories_access() {
+    $current_user = wp_get_current_user();
+    
+    // Only allow fknezevic user to access the categories page
+    if ( $current_user->user_login !== 'fknezevic' ) {
+        // Hide the categories submenu from the Prestations menu
+        remove_submenu_page( 'edit.php?post_type=prestations', 'edit-tags.php?taxonomy=prestations_categories&post_type=prestations' );
+        
+        // Also hide it if accessed directly
+        add_action( 'admin_init', function() {
+            $screen = get_current_screen();
+            if ( $screen && $screen->id === 'edit-prestations_categories' ) {
+                wp_die( 
+                    '<h1>Accès refusé</h1><p>Vous n\'avez pas les permissions nécessaires pour accéder à cette page.</p>', 
+                    'Accès refusé', 
+                    array( 'response' => 403 ) 
+                );
+            }
+        });
+    }
+}
+add_action( 'admin_menu', 'restrict_prestations_categories_access', 999 );
+
 
 // Remove permissions for taxonomy management
 function remove_prestations_categories_capabilities() {
