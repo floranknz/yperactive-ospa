@@ -22,7 +22,7 @@ get_header();
         <div class="tab active-tab title-3 w-1/2 border-b border-outer-space-700 text-center p-8 cursor-pointer" data-tab="soins">Nos soins</div>
         <div class="tab title-3 w-1/2 border-b border-outer-space-700 text-center p-8 cursor-pointer" data-tab="cours">Nos cours</div>
     </div>
-    <div id="tab-content" data-active-tab="soins">
+    <div id="tab-content" data-active-tab="soins" class="mb-48">
         <?php
         // Find the "soins" category by slug
         $soins_parent = get_term_by( 'slug', 'soins', 'prestations_categories' );
