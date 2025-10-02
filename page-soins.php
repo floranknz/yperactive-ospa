@@ -344,6 +344,7 @@ get_header();
         });
         </script>
     </div>
+    <?php if( get_field('banner-pdf_display') ) : ?>
     <div class="banner-pdf relative flex flex-col-reverse md:flex-row rounded-lg w-full overflow-hidden mb-80 bg-soft-white-200">
         <div class="flex flex-col items-start p-24 flex-1">
             <p class="mb-24"><?= esc_html( get_field('banner-pdf_text') ); ?></p>
@@ -351,6 +352,7 @@ get_header();
         </div>
         <img src="<?= esc_html( get_field('banner-pdf_image') ); ?>" alt="PDF" class="block lg:absolute lg:right-0 lg:top-1/2 transform lg:-translate-y-1/2 md:w-[320px] object-contain">
     </div>
+    <?php endif; ?>
 </div>
 
 <?php get_footer(); ?>
