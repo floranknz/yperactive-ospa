@@ -552,21 +552,18 @@ function category_management_page_callback() {
                 var $container = $(this);
                 var $items = $container.find('.child-category-item');
                 
-                // Get all current positions
-                var positions = [];
-                $items.each(function() {
-                    positions.push(parseInt($(this).find('.position-input').val()));
-                });
-                
-                // Sort positions to get new order
-                positions.sort(function(a, b) { return a - b; });
-                
-                // Assign new positions based on DOM order
+                // Assign new positions based on DOM order (starting from 0)
                 $items.each(function(index) {
-                    $(this).find('.position-input').val(positions[index]);
+                    $(this).find('.position-input').val(index);
                 });
             });
         }
+        
+        // Update positions before form submission
+        $('#category-positions-form').on('submit', function() {
+            updatePositionValues();
+            console.log('Form submitted - positions updated');
+        });
         
         
         // Add category form
@@ -798,13 +795,23 @@ function handle_delete_category() {
 add_action( 'wp_ajax_delete_category', 'handle_delete_category' );
 
 function handle_save_category_positions() {
+    // Debug: Log all POST data
+    error_log('=== FORM SUBMISSION DEBUG ===');
+    error_log('Function handle_save_category_positions called');
+    error_log('POST action: ' . (isset($_POST['action']) ? $_POST['action'] : 'NOT SET'));
+    error_log('POST data: ' . print_r($_POST, true));
+    
     // Check if this is a form submission for saving positions
     if ( isset( $_POST['action'] ) && $_POST['action'] === 'save_category_positions' ) {
+        error_log('Form submission detected for save_category_positions');
+        
         if ( ! wp_verify_nonce( $_POST['category_positions_nonce'], 'save_category_positions' ) ) {
+            error_log('Nonce verification failed');
             wp_die( 'Security check failed' );
         }
         
         if ( ! current_user_can( 'manage_categories' ) ) {
+            error_log('User does not have manage_categories permission');
             wp_die( 'Insufficient permissions' );
         }
         
@@ -902,8 +909,13 @@ function create_default_prestations_categories() {
 }
 add_action( 'after_switch_theme', 'create_default_prestations_categories' );
 
-// Ensure all existing categories have position meta fields
+// Ensure all existing categories have position meta fields (only run once)
 function ensure_categories_have_position_meta() {
+    // Only run this once, not on every admin_init
+    if ( get_option( 'prestations_categories_position_meta_ensured' ) ) {
+        return;
+    }
+    
     $all_categories = get_terms( array(
         'taxonomy' => 'prestations_categories',
         'hide_empty' => false,
@@ -918,6 +930,9 @@ function ensure_categories_have_position_meta() {
             }
         }
     }
+    
+    // Mark as completed
+    update_option( 'prestations_categories_position_meta_ensured', true );
 }
 add_action( 'admin_init', 'ensure_categories_have_position_meta' );
 
