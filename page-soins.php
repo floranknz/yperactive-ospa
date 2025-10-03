@@ -211,7 +211,7 @@ get_header();
                                 <p><?php echo esc_html( $description ); ?></p>
                             <?php endif; ?>
                         </div>
-                        <div class="flex-none">
+                        <div class="flex-none flex gap-24 items-center">
                             <?php if ( $prix ) : ?>
                                 <span class="mr-24"><?php echo esc_html( $prix ); ?> €</span>
                             <?php endif; ?>
