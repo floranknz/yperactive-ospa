@@ -34,10 +34,33 @@ get_header();
                 'taxonomy' => 'prestations_categories',
                 'hide_empty' => false,
                 'parent' => $soins_parent->term_id,
-                'orderby' => 'meta_value_num',
-                'meta_key' => 'category_position',
+                'orderby' => 'name', // Get all categories first
                 'order' => 'ASC',
             ) );
+        }
+        
+        // Sort categories by position meta, with fallback to name (same logic as admin area)
+        if ( ! is_wp_error( $soins_subcategories ) && ! empty( $soins_subcategories ) ) {
+            usort( $soins_subcategories, function( $a, $b ) {
+                $pos_a = get_term_meta( $a->term_id, 'category_position', true );
+                $pos_b = get_term_meta( $b->term_id, 'category_position', true );
+                
+                // If both have positions, sort by position
+                if ( $pos_a !== '' && $pos_b !== '' ) {
+                    return intval( $pos_a ) - intval( $pos_b );
+                }
+                
+                // If only one has position, prioritize it
+                if ( $pos_a !== '' && $pos_b === '' ) {
+                    return -1;
+                }
+                if ( $pos_a === '' && $pos_b !== '' ) {
+                    return 1;
+                }
+                
+                // If neither has position, sort by name
+                return strcmp( $a->name, $b->name );
+            } );
         }
         
         // Filter subcategories that have posts
