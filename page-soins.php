@@ -17,12 +17,7 @@ get_header();
 <div class="container mt-80 mb-48">
     <p><?= get_field('intro'); ?></p>
 </div>
-<div class="container">
-    <div class="tabs flex mb-48">
-        <div class="tab active-tab title-3 w-1/2 border-b border-outer-space-700 text-center p-8 cursor-pointer" data-tab="soins">Nos soins</div>
-        <div class="tab title-3 w-1/2 border-b border-outer-space-700 text-center p-8 cursor-pointer" data-tab="cours">Nos cours</div>
-    </div>
-    <div id="tab-content" data-active-tab="soins" class="mb-48">
+<div class="container mb-48">
         <?php
         // Find the "soins" category by slug
         $soins_parent = get_term_by( 'slug', 'soins', 'prestations_categories' );
@@ -85,29 +80,10 @@ get_header();
             }
         }
         
-        // Get prestations from "cours" category ordered alphabetically
-        $cours_category = get_term_by( 'slug', 'cours', 'prestations_categories' );
-        $cours_prestations = array();
-        
-        if ( $cours_category && ! is_wp_error( $cours_category ) ) {
-            $cours_prestations = get_posts( array(
-                'post_type' => 'prestations',
-                'posts_per_page' => -1,
-                'orderby' => 'title',
-                'order' => 'ASC',
-                'tax_query' => array(
-                    array(
-                        'taxonomy' => 'prestations_categories',
-                        'field'    => 'term_id',
-                        'terms'    => $cours_category->term_id,
-                    ),
-                ),
-            ) );
-        }
         ?>
         
-        <!-- Category Tags Filter (only for soins) -->
-        <div id="soins-tags" class="tags flex flex-wrap gap-8 mb-48">
+        <!-- Category Tags Filter -->
+        <div class="tags flex flex-wrap gap-8 mb-48">
             <button class="tag-filter tag py-6 px-12 bg-outer-space-700 text-pure-white rounded inline active" data-category="all">Tous</button>
             <?php foreach ( $categories_with_posts as $category ) : ?>
                 <button class="tag-filter tag py-6 px-12 bg-soft-white-300 rounded inline" data-category="<?php echo esc_attr( $category->term_id ); ?>">
@@ -194,109 +170,14 @@ get_header();
                 echo '<p>Aucune prestation disponible pour le moment.</p>';
             }
             
-            // Display "Cours"
-            if ( ! empty( $cours_prestations ) ) {
-                echo '<div id="cours-section" style="display: none;">';
-                foreach ( $cours_prestations as $prestation ) {
-                    $description = get_post_meta( $prestation->ID, '_prestation_description', true );
-                    $prix = get_post_meta( $prestation->ID, '_prestation_prix', true );
-                    $lien_solo = get_post_meta( $prestation->ID, '_prestation_lien_solo', true );
-                    $lien_duo = get_post_meta( $prestation->ID, '_prestation_lien_duo', true );
-                    $lien_trio = get_post_meta( $prestation->ID, '_prestation_lien_trio', true );
-                    ?>
-                    <div class="soin-item flex mb-16 items-center">
-                        <div class="flex-grow">
-                            <div class="title-3 text-cherokee-800"><?php echo esc_html( $prestation->post_title ); ?></div>
-                            <?php if ( $description ) : ?>
-                                <p><?php echo esc_html( $description ); ?></p>
-                            <?php endif; ?>
-                        </div>
-                        <div class="flex-none flex gap-24 items-center">
-                            <?php if ( $prix ) : ?>
-                                <span class="mr-24"><?php echo esc_html( $prix ); ?> €</span>
-                            <?php endif; ?>
-                            
-                            <?php 
-                            // Check if any booking links are available
-                            $has_booking_links = $lien_solo || $lien_duo || $lien_trio;
-                            
-                            if ( $has_booking_links ) : ?>
-                                <div class="booking-dropdown relative">
-                                    <button class="btn btn-secondary booking-dropdown-toggle flex items-center gap-8" type="button">
-                                        Réserver
-                                        <i class="bx bx-chevron-down bx-xs"></i>
-                                    </button>
-                                    <div class="booking-sub-menu hidden absolute top-full left-0 mt-8 py-8 shadow-md bg-soft-white-100 min-w-64 text-outer-space-700 rounded z-50">
-                                        <?php if ( $lien_solo ) : ?>
-                                            <a href="<?php echo esc_url( $lien_solo ); ?>" target="_blank" class="block py-8 px-24 hover:bg-soft-white-200">Solo</a>
-                                        <?php endif; ?>
-                                        <?php if ( $lien_duo ) : ?>
-                                            <a href="<?php echo esc_url( $lien_duo ); ?>" target="_blank" class="block py-8 px-24 hover:bg-soft-white-200">Duo</a>
-                                        <?php endif; ?>
-                                        <?php if ( $lien_trio ) : ?>
-                                            <a href="<?php echo esc_url( $lien_trio ); ?>" target="_blank" class="block py-8 px-24 hover:bg-soft-white-200">Trio</a>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                    <?php
-                }
-                echo '</div>';
-            }
             ?>
         </div>
         
         <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Tab switching functionality
-            const tabs = document.querySelectorAll('.tab');
-            const tabContent = document.getElementById('tab-content');
-            const soinsTags = document.getElementById('soins-tags');
-            const coursSection = document.getElementById('cours-section');
-            const categorySections = document.querySelectorAll('.category-section');
-            
-            tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    const targetTab = this.getAttribute('data-tab');
-                    
-                    // Update active tab
-                    tabs.forEach(t => {
-                        t.classList.remove('active-tab');
-                    });
-                    this.classList.add('active-tab');
-                    
-                    // Update data attribute
-                    tabContent.setAttribute('data-active-tab', targetTab);
-                    
-                    // Show/hide content based on tab
-                    if (targetTab === 'soins') {
-                        soinsTags.style.display = 'flex';
-                        // Show all category sections
-                        categorySections.forEach(section => {
-                            section.style.display = 'block';
-                        });
-                        // Hide cours section
-                        if (coursSection) {
-                            coursSection.style.display = 'none';
-                        }
-                    } else if (targetTab === 'cours') {
-                        soinsTags.style.display = 'none';
-                        // Hide all category sections
-                        categorySections.forEach(section => {
-                            section.style.display = 'none';
-                        });
-                        // Show cours section
-                        if (coursSection) {
-                            coursSection.style.display = 'block';
-                        }
-                    }
-                });
-            });
-            
-            // Tag filtering functionality (only for soins tab)
+            // Tag filtering functionality
             const tagFilters = document.querySelectorAll('.tag-filter');
+            const categorySections = document.querySelectorAll('.category-section');
             
             tagFilters.forEach(tag => {
                 tag.addEventListener('click', function() {
