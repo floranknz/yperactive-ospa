@@ -135,29 +135,57 @@ function add_prestations_categories_top_notice() {
 }
 add_action( 'admin_footer', 'add_prestations_categories_top_notice' );
 
-// Restrict Categories page access to fknezevic user only
+// Completely remove Categories page access for all users
 function restrict_prestations_categories_access() {
-    $current_user = wp_get_current_user();
+    // Method 1: Remove submenu page with higher priority
+    remove_submenu_page( 'edit.php?post_type=prestations', 'edit-tags.php?taxonomy=prestations_categories&post_type=prestations' );
+}
+
+// Run the removal with higher priority to ensure it works
+add_action( 'admin_menu', 'restrict_prestations_categories_access', 9999 );
+
+// Method 2: Block direct access to the categories page
+function block_prestations_categories_direct_access() {
+    global $pagenow;
     
-    // Only allow fknezevic user to access the categories page
-    if ( $current_user->user_login !== 'fknezevic' ) {
-        // Hide the categories submenu from the Prestations menu
-        remove_submenu_page( 'edit.php?post_type=prestations', 'edit-tags.php?taxonomy=prestations_categories&post_type=prestations' );
-        
-        // Also hide it if accessed directly
-        add_action( 'admin_init', function() {
-            $screen = get_current_screen();
-            if ( $screen && $screen->id === 'edit-prestations_categories' ) {
-                wp_die( 
-                    '<h1>Accès refusé</h1><p>Vous n\'avez pas les permissions nécessaires pour accéder à cette page.</p>', 
-                    'Accès refusé', 
-                    array( 'response' => 403 ) 
-                );
-            }
-        });
+    // Check if trying to access the categories page directly
+    if ( $pagenow === 'edit-tags.php' && isset( $_GET['taxonomy'] ) && $_GET['taxonomy'] === 'prestations_categories' ) {
+        wp_die( 
+            '<h1>Accès refusé</h1><p>Cette page n\'est plus accessible.</p>', 
+            'Accès refusé', 
+            array( 'response' => 403 ) 
+        );
     }
 }
-add_action( 'admin_menu', 'restrict_prestations_categories_access', 999 );
+add_action( 'admin_init', 'block_prestations_categories_direct_access' );
+
+// Method 3: Remove taxonomy from admin menu completely
+function remove_prestations_categories_from_menu() {
+    global $submenu;
+    
+    // Remove the categories submenu if it exists
+    if ( isset( $submenu['edit.php?post_type=prestations'] ) ) {
+        foreach ( $submenu['edit.php?post_type=prestations'] as $key => $item ) {
+            if ( isset( $item[2] ) && strpos( $item[2], 'edit-tags.php?taxonomy=prestations_categories' ) !== false ) {
+                unset( $submenu['edit.php?post_type=prestations'][$key] );
+            }
+        }
+    }
+}
+add_action( 'admin_menu', 'remove_prestations_categories_from_menu', 99999 );
+
+// Method 4: Additional security - block taxonomy access via admin_init
+function block_prestations_categories_admin_access() {
+    $screen = get_current_screen();
+    if ( $screen && $screen->id === 'edit-prestations_categories' ) {
+        wp_die( 
+            '<h1>Accès refusé</h1><p>Cette page n\'est plus accessible.</p>', 
+            'Accès refusé', 
+            array( 'response' => 403 ) 
+        );
+    }
+}
+add_action( 'current_screen', 'block_prestations_categories_admin_access' );
 
 
 // Remove permissions for taxonomy management
